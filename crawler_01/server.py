@@ -44,14 +44,14 @@ def cached_url(url):
         if not os.path.exists(folder):
             os.makedirs(folder)
 
-    #     headers = {
-    #         'user-agent': '''Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36
-    # Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8''',
-    #     }
-        log('else')
+        headers = {
+            'user-agent': '''Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8''',
+        }
+        # log('else')
         # 发送网络请求, 把结果写入到文件夹中
-        # r = requests.get(url, headers)
-        r = requests.get(url)
+        r = requests.get(url, headers)
+        # r = requests.get(url)
         log('r.text', r.text) #以文本形式打印网页源码
         log('r', r.content) #以字节流形式打印
         with open(path, 'wb') as f:
